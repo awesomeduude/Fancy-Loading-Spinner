@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100');
+h1 {
+  font-size: 6em;
+  margin-top: 1em;
+  color: #E18335;
+  text-align: center;
+  font-family: 'Roboto';
+}
+.circleContainer {
+  display: inline-block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+
+  .circle {
+    fill:#8FC93A;
+    fill: url(#circle-gradient);
+    stroke: #FFE135;
+    stroke-linecap: round;
+    transform-origin: center;
+
+    animation: rotate 4s linear 0s infinite reverse;
+  }
+
+  .outline {
+    stroke-linecap: round;
+    fill:none;
+
+    transform-origin: center;
+    animation: rotate 6s linear 0s infinite forwards;
+  }
+
+  @keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100%{
+      transform: rotate(360deg);
+    }
+  }
+
+  .bar {
+    fill: #1b81c0;
+    stroke: #E18335;
+
+    animation: move 3s linear 0s infinite forwards;
+  }
+  // @for $i from 1 through 3 {
+  //   .bar:nth-of-type(#{$i}) {
+  //     animation-delay: 100ms * $i;
+  //   }
+  // }
+  .bar:nth-of-type(2n){
+    animation-direction: reverse;
+  }
+
+  @keyframes move {
+    0%{
+      transform: translateX(0);
+    }
+    25% {
+      transform: translateX(45%);
+    }
+    50% {
+      transform: translateX(0px);
+    }
+    75% {
+      transform: translateX(-45%);
+    }
+    100% {
+      transform: translateX(0px);
+    }
+
+  }
+
+}
